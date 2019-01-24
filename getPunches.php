@@ -97,9 +97,7 @@
 		$lastId = $lastId[0]['LastID'];
 		$stmt = NULL;
 		
-		//$url = "http://roc.olresultat.se/getpunches.asp?unitId=" . $unitId . "&lastId=" . $lastId . "&date=" . $date . "&time=" . $time;
-		//$url = "http://localhost:81/GetPunches/test/?unitId=" . $unitId . "&lastId=" . $lastId . "&date=" . $date . "&time=" . $time;
-		$url = "http://localhost/brr/test/?unitId=" . $unitId . "&lastId=" . $lastId;
+		$url = "http://roc.olresultat.se/getpunches.asp?unitId=" . $unitId . "&lastId=" . $lastId . "&date=" . $date . "&time=" . $time;
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
