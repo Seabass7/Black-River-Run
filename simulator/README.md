@@ -3,6 +3,7 @@ The simulator adds runners to the database and makes them run a specified race. 
 When the simulator is accessed, it returns punches for one hour of the race in the same way the live API does.
 
 ## Configuration
+- Update "$num_runners" in "index.php" to match the number of runners wanted in the test.
 - Update "$this->race_instance" value in "runner.class.php", function "__contruct" (default: '1000'.($gender+1).$distance)
 - Update "race" value in "runner.class.php", function "getSiUnit" (default: 1000)
 - Update "race" value in "runner.class.php", function "getRunner" (default: 1000)
