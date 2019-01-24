@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule ^getpunches/unitId/(.*)/ControlCode/(.*)$ GetPunches.php?unitId=$1&controlcode=$2 [R=301,L]
+RewriteRule ^getpunches/unitId/(.*)/ControlCode/(.*)$ getPunches.php?unitId=$1&controlcode=$2 [R=301,L]
