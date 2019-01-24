@@ -25,11 +25,6 @@
 			  database might need to have their place value updated based on the new punches. $punches_from_DB 
 			  can not be used for this purpose as it is dynamically extended with the punches prepared for the
 			  database so that they are taken into account when doing validations in the on-going foreach iterations.
-			  
-			  NOTE TO SEABASS: Jag var trött när jag skrev detta, men jag tror kanske att vi bara behöver $punches_from_DB
-							   eftersom att den arrayen till slut innehåller alla punches från databasen samt alla punches som har blivit
-							   förberedda för databasen, vilket en merge av $timestamps_prepped_for_DB och $original_punches_from_DB
-							   uppnår.
 			  */
 			$original_punches_from_DB = $punches_from_DB; 
 				
@@ -102,9 +97,6 @@
 		$lastId = $lastId[0]['LastID'];
 		$stmt = NULL;
 		
-		//$date = "2019-01-13";
-		//$time = "12:00:00";
-		
 		//$url = "http://roc.olresultat.se/getpunches.asp?unitId=" . $unitId . "&lastId=" . $lastId . "&date=" . $date . "&time=" . $time;
 		//$url = "http://localhost:81/GetPunches/test/?unitId=" . $unitId . "&lastId=" . $lastId . "&date=" . $date . "&time=" . $time;
 		$url = "http://localhost/brr/test/?unitId=" . $unitId . "&lastId=" . $lastId;
@@ -119,8 +111,6 @@
 		$res = explode("\r\n", $res);
 		$res = array_filter($res);
 		
-		//var_dump($res);
-		//echo "<br>" . "<br>";
 		
 		return $res;
 	}

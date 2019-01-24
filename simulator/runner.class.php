@@ -24,7 +24,6 @@
         private static $names_last = array("Arrieta", "Rains", "Thibodeaux", "Knecht", "Maul", "Gehl", "Macedo", "Lou", "Goguen", "Stumpff", "Venzon", "Bonet", "Hayner", "Nading", "Poche", "Forsman", "Ranck", "Dulle", "Frisina", "Roselli", "Bal", "Aultman", "Carriere", "Singleton", "Wedeking", "Fulgham", "Labar", "Hutchings", "Tom", "Bugg", "Waddell", "Iskra", "Gould", "Kirkendoll", "Johnson", "Kuster", "Hernadez", "Dollins", "Freitas", "Sampsel", "Schimmel", "Brunner", "Amick", "Guerrant", "Gaiser", "Mccrory", "Paolini", "Rickenbacker", "Curren", "Danks"); 
 
         public function __construct($build_only, $si_unit_fail_percent, $si_unit_borked_percent, $start_time, $average_minutes_per_station, $laps, $distance) {
-            //$this->name = $name; //TODO: Register to database
             $this->si_unit_fail_percent = $si_unit_fail_percent;
             $this->si_unit_borked_percent = $si_unit_borked_percent;
             $this->time = new DateTime($start_time);

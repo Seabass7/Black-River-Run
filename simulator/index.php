@@ -13,7 +13,6 @@
             die();
     }
 
-    //TODO: Double punches, DNF, DNS, Runnning backwards
     define("NUM_STATIONS", 4); // Number of stations to run through each lap
     define("MAX_LAPS", 10);
     srand(0xFEE15BAD);
@@ -65,7 +64,7 @@
     $start_date = '2019-01-10 10:00:00';
     $num_runners = 20;
     $distances = array(2, 5, 10);
-    $average = 20; //Average runnning time between stations
+    $average = 20; //Average runnning time between stations (at start, it gets a bit higher for each lap)
     $runners = null;
     $timestamp_collection = null;
 
