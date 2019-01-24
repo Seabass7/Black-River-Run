@@ -117,7 +117,7 @@
 		
 		global $dbhost, $dbname, $dbusername, $dbpassword;
 		
-		$connection = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname . ';charset=utf8', $dbusername, $dbpassword);
+		$connection = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname . ';charset=utf8mb4', $dbusername, $dbpassword);
 		$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 		$connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
