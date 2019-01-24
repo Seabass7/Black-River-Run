@@ -45,7 +45,7 @@ CREATE TABLE `administrator` (
 
 CREATE TABLE `class` (
   `ID` int(11) NOT NULL,
-  `Gender` varchar(20) CHARACTER SET latin1 NOT NULL,
+  `Gender` varchar(20) CHARACTER SET utf8mb4 NOT NULL,
   `Distance` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
@@ -58,7 +58,7 @@ CREATE TABLE `class` (
 CREATE TABLE `club` (
   `ID` int(11) NOT NULL,
   `Name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -68,7 +68,7 @@ CREATE TABLE `club` (
 
 CREATE TABLE `gender` (
   `Gender` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -79,7 +79,7 @@ CREATE TABLE `gender` (
 CREATE TABLE `invalid_codes` (
   `Code` int(11) NOT NULL,
   `Description` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ CREATE TABLE `invalid_punches` (
   `Race` int(11) NOT NULL,
   `RaceInstance` int(11) NOT NULL,
   `DiscardReason` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,7 @@ CREATE TABLE `map_points` (
   `ID` int(11) NOT NULL,
   `LAT` double NOT NULL,
   `LNG` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -120,7 +120,7 @@ CREATE TABLE `race` (
   `Name` varchar(100) NOT NULL,
   `Date` date NOT NULL,
   `EndTime` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -130,7 +130,7 @@ CREATE TABLE `race` (
 
 CREATE TABLE `race_display` (
   `Race` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -143,7 +143,7 @@ CREATE TABLE `race_instance` (
   `Race` int(11) NOT NULL,
   `Class` int(11) NOT NULL,
   `StartTime` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -159,7 +159,7 @@ CREATE TABLE `race_runner` (
   `Club` int(11) DEFAULT NULL,
   `Place` int(11) DEFAULT NULL,
   `TotalTime` time DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -175,7 +175,7 @@ CREATE TABLE `runner` (
   `Gender` varchar(10) NOT NULL,
   `Country` varchar(50) NOT NULL,
   `City` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -185,7 +185,7 @@ CREATE TABLE `runner` (
 
 CREATE TABLE `runner_status` (
   `Status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -197,7 +197,7 @@ CREATE TABLE `runner_units` (
   `Runner` int(11) NOT NULL,
   `SI_unit` int(11) NOT NULL,
   `Race` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -208,7 +208,7 @@ CREATE TABLE `runner_units` (
 CREATE TABLE `si_unit` (
   `ID` int(11) NOT NULL,
   `Status` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -218,7 +218,7 @@ CREATE TABLE `si_unit` (
 
 CREATE TABLE `si_unit_status` (
   `Status` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -232,7 +232,7 @@ CREATE TABLE `station` (
   `Code` int(11) NOT NULL,
   `LengthFromStart` int(11) NOT NULL,
   `LastID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -249,7 +249,7 @@ CREATE TABLE `timestamp` (
   `RaceInstance` int(11) DEFAULT NULL,
   `Place` int(11) DEFAULT NULL,
   `Lap` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 --
 -- Indexes for dumped tables
