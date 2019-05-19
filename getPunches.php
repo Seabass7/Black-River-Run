@@ -384,17 +384,23 @@
 	
 	function adminCCupdateValuesInRaceRunnerTable($date, $timestamp, $database_connection, $stations){
 		
-		$sql_runner_race_class = "SELECT Runner, Race, Class, ID, StartTime FROM
-						      		(SELECT T1.Runner, RaceInstance FROM (SELECT Runner, RaceInstance FROM race_runner) AS T1
-						      	   INNER JOIN
-						      		(SELECT Runner FROM runner_units WHERE SI_unit = ?) AS T2
-						      	   ON T1.Runner = T2.Runner) AS T3
-						      	   INNER JOIN
-						      		(SELECT Race, ID, Class, StartTime FROM race_instance) AS T4
-						      	   ON T4.ID = T3.RaceInstance";
-								   
+		$race_date = strtotime($date);
+		$race_date_minus_24h = date("Y-m-d H:i:s",$race_date - 86400); //86400 seconds = 24h
+		
+		$sql_runner_race_class = "SELECT Runner, Race, Class, ID, StartTime, `Date` FROM
+									(SELECT T1.Runner, RaceInstance FROM (SELECT Runner, RaceInstance FROM race_runner) AS T1
+									 INNER JOIN
+									(SELECT Runner FROM runner_units WHERE SI_unit = 1) AS T2
+									 ON T1.Runner = T2.Runner) AS T3
+									 INNER JOIN
+									(SELECT Race, ID, Class, StartTime FROM race_instance) AS T4
+									 ON T4.ID = T3.RaceInstance
+									 INNER JOIN
+									(SELECT ID AS `race_id`, `Date` FROM race WHERE `Date` BETWEEN ? AND ?) AS T5
+									 ON T5.race_id = T4.Race"
+								   							   
 		$stmt = $database_connection->prepare($sql_runner_race_class);
-		$stmt->execute(array($timestamp[2]));
+		$stmt->execute(array($timestamp[2], $race_date_minus_24h, $race_date));
 		$runner_race_class = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		$stmt = NULL;
 		
@@ -403,9 +409,7 @@
 		$race_instance = $runner_race_class[0]['ID'];
 		$race_start_time = $runner_race_class[0]['StartTime'];
 		
-		$fetch_all_punches_from_DB_for_specific_runner = fetchAllPunchesForSpecificRunner($date, $runner, $database_connection);
-
-		
+		$fetch_all_punches_from_DB_for_specific_runner = fetchAllPunchesForSpecificRunner($date, $runner, $database_connection);	
 	
 		if($fetch_all_punches_from_DB_for_specific_runner == NULL){
 			//Sets status to DNS
@@ -417,7 +421,6 @@
 			updatePlaceAndTotalTimeInRaceRunnerTable($race_instance, $race, $race_start_time, true, $database_connection);
 			return;
 		}
-	
 		
 		$lapsRan = max(array_column($fetch_all_punches_from_DB_for_specific_runner, 'Lap'));
 		//$lapsRan = count(array_column($punches_from_DB_at_fourth_station_for_specific_runner, 'Lap'));
