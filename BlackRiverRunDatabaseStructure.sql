@@ -318,6 +318,7 @@ ALTER TABLE `race_instance`
 --
 ALTER TABLE `race_runner`
   ADD PRIMARY KEY (`RaceInstance`,`Runner`),
+  ADD UNIQUE KEY `RaceInstance` (`RaceInstance`,`Bib`),
   ADD KEY `race_runner_club` (`Club`),
   ADD KEY `race_runner_runner` (`Runner`),
   ADD KEY `race_runner_status` (`Status`);
